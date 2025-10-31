@@ -1,2 +1,1173 @@
-# Shajal
-Finance Hospitality Professional 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shajal Miah - Hospitality & Accounting Professional</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            background: linear-gradient(135deg, #d4af37 0%, #1e3a8a 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #d4af37;
+        }
+
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 50%, #0891b2 100%);
+            color: white;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Warm Floating Particles Animation */
+        .particles-container {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .particle {
+            position: absolute;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(255, 215, 0, 0.8), rgba(255, 165, 0, 0.3));
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.6);
+            animation: floatParticle linear infinite;
+            opacity: 0;
+        }
+
+        @keyframes floatParticle {
+            0% {
+                transform: translateY(100vh) translateX(0) scale(0);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.8;
+            }
+            50% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 0.8;
+            }
+            100% {
+                transform: translateY(-10vh) translateX(var(--float-x)) scale(1);
+                opacity: 0;
+            }
+        }
+
+        /* Glowing orbs in background */
+        .glow-orb {
+            position: absolute;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.3), transparent);
+            filter: blur(40px);
+            animation: pulse 4s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+                opacity: 0.5;
+            }
+            50% {
+                transform: scale(1.2);
+                opacity: 0.8;
+            }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            animation: fadeInUp 1s ease-out;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            animation: fadeInUp 1s ease-out 0.2s backwards;
+            color: #d4af37;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            text-align: center;
+        }
+
+        .typing-text {
+            font-size: 1.8rem;
+            margin-bottom: 2rem;
+            min-height: 2.5rem;
+            animation: fadeInUp 1s ease-out 0.4s backwards;
+            text-align: center;
+        }
+
+        .cursor {
+            display: inline-block;
+            width: 3px;
+            height: 1.5rem;
+            background: white;
+            margin-left: 5px;
+            animation: blink 0.7s infinite;
+            vertical-align: middle;
+        }
+
+        @keyframes blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0; }
+        }
+
+        .cta-button {
+            padding: 1rem 2rem;
+            font-size: 1rem;
+            background: white;
+            color: #1e3a8a;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: transform 0.3s, box-shadow 0.3s;
+            animation: fadeInUp 1s ease-out 0.6s backwards;
+            display: inline-block;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+        }
+
+        section {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s, transform 0.8s;
+        }
+
+        .section-reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            text-align: center;
+            position: relative;
+            background: linear-gradient(135deg, #d4af37 0%, #1e3a8a 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(135deg, #d4af37 0%, #059669 100%);
+            border-radius: 2px;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .about-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .about-stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        .stat-card {
+            background: linear-gradient(135deg, #d4af37 0%, #059669 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            transform: scale(0.9);
+            transition: transform 0.3s;
+        }
+
+        .stat-card:hover {
+            transform: scale(1);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-10px) rotateY(5deg);
+            box-shadow: 0 15px 30px rgba(212, 175, 55, 0.3);
+        }
+
+        .skill-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .skill-name {
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            color: #1e3a8a;
+        }
+
+        .skill-bar {
+            background: #e0e0e0;
+            height: 10px;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .skill-progress {
+            height: 100%;
+            background: linear-gradient(135deg, #d4af37 0%, #059669 100%);
+            border-radius: 5px;
+            transition: width 1s ease-out;
+        }
+
+        .hobbies-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .hobby-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: all 0.4s;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hobby-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #1e3a8a 0%, #059669 100%);
+            transition: left 0.4s;
+            z-index: 0;
+        }
+
+        .hobby-card:hover::before {
+            left: 0;
+        }
+
+        .hobby-card:hover {
+            transform: scale(1.05);
+            color: white;
+        }
+
+        .hobby-card > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hobby-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            transition: transform 0.4s;
+        }
+
+        .hobby-card:hover .hobby-icon {
+            transform: rotate(360deg) scale(1.2);
+        }
+
+        .hobby-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+
+        .travel-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .travel-card {
+            position: relative;
+            height: 400px;
+            border-radius: 20px;
+            overflow: hidden;
+            cursor: pointer;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            transition: transform 0.4s, box-shadow 0.4s;
+        }
+
+        .travel-card:hover {
+            transform: translateY(-15px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(212, 175, 55, 0.4);
+        }
+
+        .travel-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s;
+        }
+
+        .travel-card:hover .travel-image {
+            transform: scale(1.1);
+        }
+
+        .travel-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            padding: 2rem;
+            transform: translateY(0);
+            transition: transform 0.4s;
+        }
+
+        .travel-card:hover .travel-overlay {
+            transform: translateY(-10px);
+        }
+
+        .travel-location {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #d4af37;
+            margin-bottom: 0.5rem;
+        }
+
+        .travel-description {
+            color: white;
+            font-size: 0.9rem;
+        }
+
+        .travel-cta {
+            text-align: center;
+            margin-top: 3rem;
+            padding: 2rem;
+            background: linear-gradient(135deg, rgba(30, 58, 138, 0.1), rgba(212, 175, 55, 0.1));
+            border-radius: 15px;
+        }
+
+        .travel-cta h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #d4af37 0%, #1e3a8a 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .travel-cta p {
+            font-size: 1.1rem;
+            color: #666;
+            margin-bottom: 1.5rem;
+        }
+
+        .social-button {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: linear-gradient(135deg, #d4af37 0%, #1e3a8a 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: transform 0.3s, box-shadow 0.3s;
+            margin: 0.5rem;
+        }
+
+        .social-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(212, 175, 55, 0.4);
+        }
+
+        .experience-timeline {
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .experience-timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: linear-gradient(180deg, #d4af37 0%, #059669 100%);
+        }
+
+        .experience-item {
+            position: relative;
+            margin-bottom: 3rem;
+            padding-left: 2rem;
+            opacity: 0;
+            transform: translateX(-30px);
+            transition: opacity 0.6s, transform 0.6s;
+        }
+
+        .experience-item.active {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .experience-item::before {
+            content: '';
+            position: absolute;
+            left: -2.5rem;
+            top: 0;
+            width: 20px;
+            height: 20px;
+            background: white;
+            border: 4px solid #d4af37;
+            border-radius: 50%;
+            transition: transform 0.3s;
+        }
+
+        .experience-item:hover::before {
+            transform: scale(1.3);
+        }
+
+        .experience-item h3 {
+            font-size: 1.5rem;
+            color: #1e3a8a;
+            margin-bottom: 0.5rem;
+        }
+
+        .experience-item .company {
+            font-weight: bold;
+            color: #555;
+            margin-bottom: 0.5rem;
+        }
+
+        .experience-item .date {
+            color: #888;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .contact-section {
+            background: linear-gradient(135deg, #1e3a8a 0%, #059669 50%, #d4af37 100%);
+            color: white;
+            text-align: center;
+            border-radius: 20px;
+            margin: 2rem;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        .contact-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+            transition: transform 0.3s;
+        }
+
+        .contact-item:hover {
+            transform: translateY(-10px);
+        }
+
+        .contact-icon {
+            width: 60px;
+            height: 60px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            transition: all 0.3s;
+        }
+
+        .contact-icon:hover {
+            transform: rotate(360deg);
+            background: rgba(255,255,255,0.3);
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            background: #333;
+            color: white;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .typing-text {
+                font-size: 1.2rem;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            section {
+                padding: 3rem 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">SM</div>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#hobbies">Hobbies</a></li>
+            <li><a href="#travel">Travel Journey</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section id="home" class="hero">
+        <div class="particles-container" id="particlesContainer">
+            <div class="glow-orb" style="width: 300px; height: 300px; top: 10%; left: 10%;"></div>
+            <div class="glow-orb" style="width: 400px; height: 400px; top: 50%; right: 10%; animation-delay: 2s;"></div>
+            <div class="glow-orb" style="width: 250px; height: 250px; bottom: 10%; left: 50%; animation-delay: 1s;"></div>
+        </div>
+        <div class="hero-content">
+            <h1>Shajal Miah</h1>
+            <div class="typing-text" id="typingText">
+                <span id="typed"></span><span class="cursor"></span>
+            </div>
+            <button class="cta-button" onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})">
+                Let's Connect
+            </button>
+        </div>
+    </section>
+
+    <section id="about" class="section-reveal">
+        <h2>About Me</h2>
+        <div class="about-grid">
+            <div class="about-text">
+                <p>Seasoned hospitality and accounting professional with over 10 years of diverse experience spanning operations, guest services, concierge, and finance. I excel at creating exceptional guest experiences while maintaining operational excellence and financial integrity.</p>
+                <br>
+                <p>When I'm not optimizing operations or ensuring financial accuracy, you'll find me on the golf course, analyzing market trends, or exploring the latest developments in cryptocurrency and blockchain technology.</p>
+            </div>
+            <div class="about-stats">
+                <div class="stat-card">
+                    <div class="stat-number">10+</div>
+                    <div>Years Experience</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">$5M+</div>
+                    <div>Revenue Managed</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">98%</div>
+                    <div>Guest Satisfaction</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">15+</div>
+                    <div>Properties Supported</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="section-reveal">
+        <h2>Professional Skills</h2>
+        <div class="skills-grid">
+            <div class="skill-card">
+                <div class="skill-icon">📊</div>
+                <div class="skill-name">Financial Analysis</div>
+                <div class="skill-bar">
+                    <div class="skill-progress" data-progress="95" style="width: 0%"></div>
+                </div>
+            </div>
+            <div class="skill-card">
+                <div class="skill-icon">🏨</div>
+                <div class="skill-name">Hospitality Management</div>
+                <div class="skill-bar">
+                    <div class="skill-progress" data-progress="90" style="width: 0%"></div>
+                </div>
+            </div>
+            <div class="skill-card">
+                <div class="skill-icon">💼</div>
+                <div class="skill-name">Accounting & Bookkeeping</div>
+                <div class="skill-bar">
+                    <div class="skill-progress" data-progress="92" style="width: 0%"></div>
+                </div>
+            </div>
+            <div class="skill-card">
+                <div class="skill-icon">📈</div>
+                <div class="skill-name">Budget Management</div>
+                <div class="skill-bar">
+                    <div class="skill-progress" data-progress="88" style="width: 0%"></div>
+                </div>
+            </div>
+            <div class="skill-card">
+                <div class="skill-icon">🤝</div>
+                <div class="skill-name">Customer Relations</div>
+                <div class="skill-bar">
+                    <div class="skill-progress" data-progress="93" style="width: 0%"></div>
+                </div>
+            </div>
+            <div class="skill-card">
+                <div class="skill-icon">⚙️</div>
+                <div class="skill-name">Operations Management</div>
+                <div class="skill-bar">
+                    <div class="skill-progress" data-progress="87" style="width: 0%"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="hobbies" class="section-reveal">
+        <h2>Hobbies & Interests</h2>
+        <div class="hobbies-grid">
+            <div class="hobby-card">
+                <div class="hobby-icon">⛳</div>
+                <div class="hobby-title">Golf Enthusiast</div>
+                <p>Love hitting the greens and perfecting my swing. Golf teaches patience, strategy, and precision—skills that translate perfectly to business.</p>
+            </div>
+            <div class="hobby-card">
+                <div class="hobby-icon">📈</div>
+                <div class="hobby-title">Stock Trading</div>
+                <p>Active trader with a passion for market analysis and investment strategies. Always learning and staying ahead of market trends.</p>
+            </div>
+            <div class="hobby-card">
+                <div class="hobby-icon">₿</div>
+                <div class="hobby-title">Crypto & Blockchain</div>
+                <p>Fascinated by cryptocurrency and blockchain technology. Following DeFi innovations and exploring the future of digital finance.</p>
+            </div>
+            <div class="hobby-card">
+                <div class="hobby-icon">🌍</div>
+                <div class="hobby-title">Travel & Culture</div>
+                <p>Passionate about exploring new destinations and experiencing diverse cultures. Each journey brings fresh perspectives to hospitality excellence.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="travel" class="section-reveal">
+        <h2>Follow My Travel Journey 🌍</h2>
+        
+        <div class="travel-gallery">
+            <div class="travel-card" onclick="openJourney('paris')">
+                <img src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?w=800&h=600&fit=crop" alt="Paris" class="travel-image">
+                <div class="travel-overlay">
+                    <div class="travel-location">Paris, France</div>
+                    <div class="travel-description">Click to see my journey through the city of lights and romance.</div>
+                </div>
+            </div>
+            
+            <div class="travel-card" onclick="openJourney('swiss')">
+                <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&h=600&fit=crop" alt="Mountains" class="travel-image">
+                <div class="travel-overlay">
+                    <div class="travel-location">Swiss Alps, Switzerland</div>
+                    <div class="travel-description">Click to explore my mountain adventure and Swiss hospitality.</div>
+                </div>
+            </div>
+            
+            <div class="travel-card" onclick="openJourney('santorini')">
+                <img src="https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?w=800&h=600&fit=crop" alt="Santorini" class="travel-image">
+                <div class="travel-overlay">
+                    <div class="travel-location">Santorini, Greece</div>
+                    <div class="travel-description">Click to see stunning sunsets and Greek island magic.</div>
+                </div>
+            </div>
+            
+            <div class="travel-card" onclick="openJourney('petra')">
+                <img src="https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?w=800&h=600&fit=crop" alt="Jordan" class="travel-image">
+                <div class="travel-overlay">
+                    <div class="travel-location">Petra, Jordan</div>
+                    <div class="travel-description">Click to discover ancient wonders carved in stone.</div>
+                </div>
+            </div>
+            
+            <div class="travel-card" onclick="openJourney('iceland')">
+                <img src="https://images.unsplash.com/photo-1545569341-9eb8b30979d9?w=800&h=600&fit=crop" alt="Iceland" class="travel-image">
+                <div class="travel-overlay">
+                    <div class="travel-location">Reykjavik, Iceland</div>
+                    <div class="travel-description">Click to witness Northern Lights and fire & ice landscapes.</div>
+                </div>
+            </div>
+            
+            <div class="travel-card" onclick="openJourney('dubai')">
+                <img src="https://images.unsplash.com/photo-1528702748617-c64d49f918af?w=800&h=600&fit=crop" alt="Dubai" class="travel-image">
+                <div class="travel-overlay">
+                    <div class="travel-location">Dubai, UAE</div>
+                    <div class="travel-description">Click to experience modern luxury and Arabian hospitality.</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="travel-cta">
+            <h3>Join Me on My Adventures!</h3>
+            <p>Follow my latest travels, photography, and cultural discoveries</p>
+            <a href="https://instagram.com/yourusername" target="_blank" class="social-button">📷 Follow on Instagram</a>
+            <a href="https://youtube.com/@yourusername" target="_blank" class="social-button">🎥 Watch on YouTube</a>
+        </div>
+    </section>
+
+    <section id="experience" class="section-reveal">
+        <h2>Professional Experience</h2>
+        <div class="experience-timeline">
+            <div class="experience-item">
+                <h3>Senior Hospitality Accountant</h3>
+                <div class="company">Luxury Hotel Group</div>
+                <div class="date">2020 - Present</div>
+                <p>Manage financial operations for a portfolio of premium properties. Implemented cost-saving measures that increased profitability by 25% while maintaining exceptional service standards.</p>
+            </div>
+            <div class="experience-item">
+                <h3>Financial Controller</h3>
+                <div class="company">Boutique Hospitality Inc.</div>
+                <div class="date">2018 - 2020</div>
+                <p>Oversaw all accounting functions including budgeting, forecasting, and financial reporting. Streamlined processes to reduce month-end closing time by 40%.</p>
+            </div>
+            <div class="experience-item">
+                <h3>Accounting Manager</h3>
+                <div class="company">Resort & Spa Destination</div>
+                <div class="date">2016 - 2018</div>
+                <p>Led accounting team for a 200+ room resort. Managed payroll, accounts payable/receivable, and developed financial analysis reports for executive leadership.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact-section">
+        <h2 style="color: white;">Let's Connect</h2>
+        <div class="contact-info">
+            <div class="contact-item">
+                <div class="contact-icon">📧</div>
+                <div>Shajal08@icloud.com</div>
+            </div>
+            <div class="contact-item">
+                <div class="contact-icon">📱</div>
+                <div>+1 (555) 123-4567</div>
+            </div>
+            <div class="contact-item">
+                <div class="contact-icon">📍</div>
+                <div>Your City, State</div>
+            </div>
+            <div class="contact-item">
+                <div class="contact-icon">💼</div>
+                <div>LinkedIn</div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Shajal Miah. Crafted with passion for hospitality & numbers.</p>
+    </footer>
+
+    <script>
+        // Typing animation
+        const phrases = [
+            "Hospitality & Accounting Professional",
+            "Financial Analysis Expert",
+            "Customer Experience Advocate",
+            "Golf Enthusiast ⛳",
+            "Stock Market Trader 📈",
+            "Crypto Believer ₿"
+        ];
+        let phraseIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+        const typingSpeed = 100;
+        const deletingSpeed = 50;
+        const pauseTime = 2000;
+
+        function type() {
+            const currentPhrase = phrases[phraseIndex];
+            const typedElement = document.getElementById('typed');
+
+            if (!isDeleting && charIndex <= currentPhrase.length) {
+                typedElement.textContent = currentPhrase.substring(0, charIndex);
+                charIndex++;
+                setTimeout(type, typingSpeed);
+            } else if (isDeleting && charIndex >= 0) {
+                typedElement.textContent = currentPhrase.substring(0, charIndex);
+                charIndex--;
+                setTimeout(type, deletingSpeed);
+            } else if (!isDeleting && charIndex > currentPhrase.length) {
+                isDeleting = true;
+                setTimeout(type, pauseTime);
+            } else if (isDeleting && charIndex < 0) {
+                isDeleting = false;
+                phraseIndex = (phraseIndex + 1) % phrases.length;
+                setTimeout(type, 500);
+            }
+        }
+
+        setTimeout(type, 1000);
+
+        // Warm Floating Particles Animation
+        function createParticle() {
+            const particle = document.createElement('div');
+            particle.className = 'particle';
+            
+            const size = Math.random() * 8 + 3;
+            particle.style.width = size + 'px';
+            particle.style.height = size + 'px';
+            particle.style.left = Math.random() * 100 + '%';
+            
+            const floatX = (Math.random() - 0.5) * 200;
+            particle.style.setProperty('--float-x', floatX + 'px');
+            
+            const duration = Math.random() * 6 + 8;
+            particle.style.animationDuration = duration + 's';
+            
+            const delay = Math.random() * 2;
+            particle.style.animationDelay = delay + 's';
+            
+            document.getElementById('particlesContainer').appendChild(particle);
+            
+            setTimeout(() => {
+                if (particle.parentNode) {
+                    particle.remove();
+                }
+            }, (duration + delay) * 1000);
+        }
+
+        // Create initial particles
+        for(let i = 0; i < 30; i++) {
+            setTimeout(() => createParticle(), i * 200);
+        }
+        
+        setInterval(createParticle, 600);
+
+        // Journey Data
+        const journeyData = {
+            paris: {
+                title: "Paris, France",
+                date: "September 2023",
+                story: "My journey to Paris was nothing short of magical. From the moment I arrived, the city captured my heart with its timeless elegance and romantic atmosphere. I spent days wandering through charming cobblestone streets, visiting world-class museums, and experiencing the incredible French hospitality that inspired my own career path. The Eiffel Tower at sunset was a moment I'll never forget - the golden light reflecting off the iron structure while the city buzzed with life below. Every café, every bistro, every hotel showed me the art of hospitality at its finest.",
+                photos: [
+                    { url: "https://images.unsplash.com/photo-1502602898657-3e91760cbb34?w=800", caption: "Iconic Eiffel Tower at sunset" },
+                    { url: "https://images.unsplash.com/photo-1511739001486-6bfe10ce785f?w=800", caption: "Charming Parisian streets" },
+                    { url: "https://images.unsplash.com/photo-1499856871958-5b9627545d1a?w=800", caption: "Notre-Dame Cathedral" },
+                    { url: "https://images.unsplash.com/photo-1431274172761-fca41d930114?w=800", caption: "Seine River cruise" },
+                    { url: "https://images.unsplash.com/photo-1502602898657-3e91760cbb34?w=800", caption: "Evening lights of Paris" },
+                    { url: "https://images.unsplash.com/photo-1509439581779-6298f75bf6e5?w=800", caption: "Local café culture" }
+                ]
+            },
+            swiss: {
+                title: "Swiss Alps, Switzerland",
+                date: "July 2023",
+                story: "The Swiss Alps took my breath away - literally and figuratively! The pristine mountain air, crystal-clear lakes, and picture-perfect villages felt like stepping into a postcard. I experienced world-renowned Swiss hospitality in mountain resorts where every detail was perfected. Hiking through alpine meadows, taking scenic train rides, and watching the sunrise paint the peaks golden taught me that sometimes the best luxury is nature itself, paired with impeccable service.",
+                photos: [
+                    { url: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800", caption: "Majestic mountain peaks" },
+                    { url: "https://images.unsplash.com/photo-1531366936337-7c912a4589a7?w=800", caption: "Alpine village charm" },
+                    { url: "https://images.unsplash.com/photo-1527004013197-933c4bb611b3?w=800", caption: "Crystal clear mountain lakes" },
+                    { url: "https://images.unsplash.com/photo-1531572753322-ad063cecc140?w=800", caption: "Scenic mountain railway" }
+                ]
+            },
+            santorini: {
+                title: "Santorini, Greece",
+                date: "June 2023",
+                story: "Santorini exceeded every expectation. The iconic white-washed buildings with blue domes against the deep blue Aegean Sea created the most stunning backdrop I've ever seen. I stayed in a cave hotel carved into the cliffs, dined on fresh Mediterranean cuisine with views of the caldera, and watched the most spectacular sunsets of my life. The Greek hospitality - warm, genuine, and generous - reminded me why I love this industry.",
+                photos: [
+                    { url: "https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?w=800", caption: "Classic Santorini sunset" },
+                    { url: "https://images.unsplash.com/photo-1533104816931-20fa691ff6ca?w=800", caption: "Blue-domed churches" },
+                    { url: "https://images.unsplash.com/photo-1570077188670-e3a8d69ac5ff?w=800", caption: "Cliffside villages" },
+                    { url: "https://images.unsplash.com/photo-1613395877344-13d4a8e0d49e?w=800", caption: "Aegean Sea views" }
+                ]
+            },
+            petra: {
+                title: "Petra, Jordan",
+                date: "March 2023",
+                story: "Walking through the narrow Siq canyon and seeing the Treasury emerge from the rock face was one of the most awe-inspiring moments of my life. Petra is more than just ancient ruins - it's a testament to human ingenuity and a reminder of how hospitality and trade routes shaped civilizations. The Jordanian people's warmth and pride in sharing their heritage made this trip unforgettable.",
+                photos: [
+                    { url: "https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?w=800", caption: "The magnificent Treasury" },
+                    { url: "https://images.unsplash.com/photo-1578583173713-af1ca0611bb8?w=800", caption: "Ancient carved facades" },
+                    { url: "https://images.unsplash.com/photo-1580674285054-bed31e145f59?w=800", caption: "Desert monastery" },
+                    { url: "https://images.unsplash.com/photo-1519404969746-86c47d5cf0e1?w=800", caption: "Sunset over Petra" }
+                ]
+            },
+            iceland: {
+                title: "Reykjavik, Iceland",
+                date: "January 2023",
+                story: "Iceland in winter was pure magic. I witnessed the Northern Lights dancing across the Arctic sky, soaked in geothermal hot springs under the stars, and explored ice caves that looked like they belonged in another world. The contrast of fire and ice - from volcanic landscapes to massive glaciers - was incredible. Icelandic hospitality has a unique charm: cozy, efficient, and deeply connected to nature.",
+                photos: [
+                    { url: "https://images.unsplash.com/photo-1545569341-9eb8b30979d9?w=800", caption: "Northern Lights spectacle" },
+                    { url: "https://images.unsplash.com/photo-1504829857797-ddff29c27927?w=800", caption: "Blue Lagoon hot springs" },
+                    { url: "https://images.unsplash.com/photo-1519904981063-b0cf448d479e?w=800", caption: "Massive glaciers" },
+                    { url: "https://images.unsplash.com/photo-1483347756197-71ef80e95f73?w=800", caption: "Dramatic waterfalls" }
+                ]
+            },
+            dubai: {
+                title: "Dubai, UAE",
+                date: "November 2022",
+                story: "Dubai is where luxury hospitality reaches new heights - literally! From the Burj Khalifa to 7-star hotels, every experience was designed to impress. But beyond the glitz and glamour, I discovered the rich culture, warm Emirati hospitality, and the fascinating blend of tradition and innovation. The city taught me that great hospitality is about creating unforgettable experiences, whether in a traditional souk or a modern skyscraper.",
+                photos: [
+                    { url: "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=800", caption: "Burj Khalifa at night" },
+                    { url: "https://images.unsplash.com/photo-1518684079-3c830dcef090?w=800", caption: "Luxury desert resort" },
+                    { url: "https://images.unsplash.com/photo-1546412414-e1885259563a?w=800", caption: "Modern Dubai skyline" },
+                    { url: "https://images.unsplash.com/photo-1582672060674-bc2bd808a8b5?w=800", caption: "Traditional markets" }
+                ]
+            }
+        };
+
+        function openJourney(destination) {
+            const data = journeyData[destination];
+            
+            let photosHTML = '';
+            data.photos.forEach(photo => {
+                photosHTML += `
+                    <div style="margin-bottom: 2rem; border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.3);">
+                        <img src="${photo.url}" alt="${photo.caption}" style="width: 100%; height: 400px; object-fit: cover; display: block;">
+                        <div style="background: linear-gradient(135deg, #d4af37 0%, #1e3a8a 100%); padding: 1rem; color: white; font-weight: 500;">
+                            ${photo.caption}
+                        </div>
+                    </div>
+                `;
+            });
+            
+            const journeyHTML = `
+                <!DOCTYPE html>
+                <html lang="en">
+                <head>
+                    <meta charset="UTF-8">
+                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                    <title>${data.title} - Travel Journey</title>
+                    <style>
+                        * {
+                            margin: 0;
+                            padding: 0;
+                            box-sizing: border-box;
+                        }
+                        body {
+                            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                            background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%);
+                            color: white;
+                            padding: 2rem;
+                            line-height: 1.6;
+                        }
+                        .container {
+                            max-width: 1200px;
+                            margin: 0 auto;
+                        }
+                        .header {
+                            text-align: center;
+                            margin-bottom: 3rem;
+                            padding-bottom: 2rem;
+                            border-bottom: 2px solid rgba(212, 175, 55, 0.3);
+                        }
+                        h1 {
+                            font-size: 3.5rem;
+                            color: #d4af37;
+                            margin-bottom: 1rem;
+                            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+                        }
+                        .date {
+                            font-size: 1.3rem;
+                            color: #aaa;
+                        }
+                        .story {
+                            background: rgba(255,255,255,0.1);
+                            padding: 2.5rem;
+                            border-radius: 20px;
+                            margin-bottom: 3rem;
+                            font-size: 1.2rem;
+                            line-height: 1.9;
+                            backdrop-filter: blur(10px);
+                            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+                        }
+                        .photos {
+                            display: grid;
+                            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+                            gap: 2rem;
+                        }
+                        .back-button {
+                            position: fixed;
+                            top: 2rem;
+                            right: 2rem;
+                            padding: 1rem 2rem;
+                            background: rgba(212, 175, 55, 0.9);
+                            color: white;
+                            border: none;
+                            border-radius: 50px;
+                            font-size: 1rem;
+                            font-weight: bold;
+                            cursor: pointer;
+                            transition: transform 0.3s, background 0.3s;
+                            z-index: 1000;
+                        }
+                        .back-button:hover {
+                            transform: scale(1.05);
+                            background: #d4af37;
+                        }
+                        @media (max-width: 768px) {
+                            h1 { font-size: 2rem; }
+                            .photos { grid-template-columns: 1fr; }
+                            body { padding: 1rem; }
+                        }
+                    </style>
+                </head>
+                <body>
+                    <button class="back-button" onclick="window.close()">← Back to Portfolio</button>
+                    <div class="container">
+                        <div class="header">
+                            <h1>${data.title}</h1>
+                            <p class="date">${data.date}</p>
+                        </div>
+                        <div class="story">
+                            <p>${data.story}</p>
+                        </div>
+                        <div class="photos">
+                            ${photosHTML}
+                        </div>
+                    </div>
+                </body>
+                </html>
+            `;
+            
+            // Open in new window/tab
+            const newWindow = window.open('', '_blank');
+            newWindow.document.write(journeyHTML);
+            newWindow.document.close();
+        }
+
+        // Animate sections on scroll
+        const observerOptions = {
+            threshold: 0.3
+        };
+
+        const sectionObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    
+                    const progressBars = entry.target.querySelectorAll('.skill-progress');
+                    progressBars.forEach(bar => {
+                        const progress = bar.getAttribute('data-progress');
+                        bar.style.width = progress + '%';
+                    });
+
+                    const expItems = entry.target.querySelectorAll('.experience-item');
+                    expItems.forEach((item, index) => {
+                        setTimeout(() => {
+                            item.classList.add('active');
+                        }, index * 200);
+                    });
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.section-reveal').forEach(section => {
+            sectionObserver.observe(section);
+        });
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                target.scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+    </script>
+</body>
+</html>
