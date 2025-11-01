@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Name - Hospitality & Accounting Professional</title>
+    <title>Shajal Miah - Hospitality & Accounting Professional</title>
     <style>
         * {
             margin: 0;
@@ -35,7 +35,7 @@
         .logo {
             font-size: 1.5rem;
             font-weight: bold;
-            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            background: linear-gradient(135deg, #d4af37 0%, #1e3a8a 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
@@ -54,7 +54,7 @@
         }
 
         .nav-links a:hover {
-            color: #f5576c;
+            color: #d4af37;
         }
 
         .hero {
@@ -62,38 +62,77 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 50%, #0891b2 100%);
             color: white;
             text-align: center;
             position: relative;
             overflow: hidden;
         }
 
-        .floating-icons {
+        /* Warm Floating Particles Animation */
+        .particles-container {
             position: absolute;
             width: 100%;
             height: 100%;
             overflow: hidden;
         }
 
-        .floating-icon {
+        .particle {
             position: absolute;
-            font-size: 3rem;
-            opacity: 0.1;
-            animation: float 15s infinite ease-in-out;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(255, 215, 0, 0.8), rgba(255, 165, 0, 0.3));
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.6);
+            animation: floatParticle linear infinite;
+            opacity: 0;
         }
 
-        @keyframes float {
-            0%, 100% { transform: translateY(0) rotate(0deg); }
-            25% { transform: translateY(-30px) rotate(10deg); }
-            50% { transform: translateY(-60px) rotate(-10deg); }
-            75% { transform: translateY(-30px) rotate(5deg); }
+        @keyframes floatParticle {
+            0% {
+                transform: translateY(100vh) translateX(0) scale(0);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.8;
+            }
+            50% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 0.8;
+            }
+            100% {
+                transform: translateY(-10vh) translateX(var(--float-x)) scale(1);
+                opacity: 0;
+            }
+        }
+
+        /* Glowing orbs in background */
+        .glow-orb {
+            position: absolute;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.3), transparent);
+            filter: blur(40px);
+            animation: pulse 4s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+                opacity: 0.5;
+            }
+            50% {
+                transform: scale(1.2);
+                opacity: 0.8;
+            }
         }
 
         .hero-content {
             position: relative;
-            z-index: 1;
+            z-index: 10;
             animation: fadeInUp 1s ease-out;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 2rem;
         }
 
         @keyframes fadeInUp {
@@ -113,6 +152,7 @@
             animation: fadeInUp 1s ease-out 0.2s backwards;
             color: #d4af37;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            text-align: center;
         }
 
         .typing-text {
@@ -120,6 +160,7 @@
             margin-bottom: 2rem;
             min-height: 2.5rem;
             animation: fadeInUp 1s ease-out 0.4s backwards;
+            text-align: center;
         }
 
         .cursor {
@@ -129,6 +170,7 @@
             background: white;
             margin-left: 5px;
             animation: blink 0.7s infinite;
+            vertical-align: middle;
         }
 
         @keyframes blink {
@@ -147,6 +189,7 @@
             font-weight: bold;
             transition: transform 0.3s, box-shadow 0.3s;
             animation: fadeInUp 1s ease-out 0.6s backwards;
+            display: inline-block;
         }
 
         .cta-button:hover {
@@ -337,6 +380,105 @@
             margin-bottom: 1rem;
         }
 
+        .travel-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .travel-card {
+            position: relative;
+            height: 400px;
+            border-radius: 20px;
+            overflow: hidden;
+            cursor: pointer;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            transition: transform 0.4s, box-shadow 0.4s;
+        }
+
+        .travel-card:hover {
+            transform: translateY(-15px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(212, 175, 55, 0.4);
+        }
+
+        .travel-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s;
+        }
+
+        .travel-card:hover .travel-image {
+            transform: scale(1.1);
+        }
+
+        .travel-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            padding: 2rem;
+            transform: translateY(0);
+            transition: transform 0.4s;
+        }
+
+        .travel-card:hover .travel-overlay {
+            transform: translateY(-10px);
+        }
+
+        .travel-location {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #d4af37;
+            margin-bottom: 0.5rem;
+        }
+
+        .travel-description {
+            color: white;
+            font-size: 0.9rem;
+        }
+
+        .travel-cta {
+            text-align: center;
+            margin-top: 3rem;
+            padding: 2rem;
+            background: linear-gradient(135deg, rgba(30, 58, 138, 0.1), rgba(212, 175, 55, 0.1));
+            border-radius: 15px;
+        }
+
+        .travel-cta h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #d4af37 0%, #1e3a8a 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .travel-cta p {
+            font-size: 1.1rem;
+            color: #666;
+            margin-bottom: 1.5rem;
+        }
+
+        .social-button {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: linear-gradient(135deg, #d4af37 0%, #1e3a8a 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: transform 0.3s, box-shadow 0.3s;
+            margin: 0.5rem;
+        }
+
+        .social-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(212, 175, 55, 0.4);
+        }
+
         .experience-timeline {
             position: relative;
             padding-left: 2rem;
@@ -453,165 +595,6 @@
             color: white;
         }
 
-        /* Fun Floating Bubbles Animation */
-        .bubble-container {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 9999;
-            overflow: hidden;
-        }
-
-        .bubble {
-            position: absolute;
-            bottom: -100px;
-            border-radius: 50%;
-            background: radial-gradient(circle at 30% 30%, rgba(212, 175, 55, 0.8), rgba(30, 58, 138, 0.4));
-            opacity: 0.6;
-            pointer-events: auto;
-            cursor: pointer;
-            animation: rise linear infinite;
-            box-shadow: 0 0 20px rgba(212, 175, 55, 0.5);
-            transition: transform 0.2s, opacity 0.2s;
-        }
-
-        .bubble:hover {
-            transform: scale(1.2);
-            opacity: 0.9;
-        }
-
-        @keyframes rise {
-            0% {
-                bottom: -100px;
-                transform: translateX(0) scale(1);
-            }
-            50% {
-                transform: translateX(100px) scale(1.1);
-            }
-            100% {
-                bottom: 110vh;
-                transform: translateX(-100px) scale(0.8);
-            }
-        }
-
-        @keyframes pop {
-            0% {
-                transform: scale(1);
-                opacity: 1;
-            }
-            100% {
-                transform: scale(2);
-                opacity: 0;
-            }
-        }
-
-        .bubble.popping {
-            animation: pop 0.3s forwards;
-        }
-
-        /* Travel Gallery Styles */
-        .travel-gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .travel-card {
-            position: relative;
-            height: 400px;
-            border-radius: 20px;
-            overflow: hidden;
-            cursor: pointer;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-            transition: transform 0.4s, box-shadow 0.4s;
-        }
-
-        .travel-card:hover {
-            transform: translateY(-15px) scale(1.02);
-            box-shadow: 0 20px 40px rgba(212, 175, 55, 0.4);
-        }
-
-        .travel-image {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.4s;
-        }
-
-        .travel-card:hover .travel-image {
-            transform: scale(1.1);
-        }
-
-        .travel-overlay {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
-            padding: 2rem;
-            transform: translateY(0);
-            transition: transform 0.4s;
-        }
-
-        .travel-card:hover .travel-overlay {
-            transform: translateY(-10px);
-        }
-
-        .travel-location {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: #d4af37;
-            margin-bottom: 0.5rem;
-        }
-
-        .travel-description {
-            color: white;
-            font-size: 0.9rem;
-        }
-
-        .travel-cta {
-            text-align: center;
-            margin-top: 3rem;
-            padding: 2rem;
-            background: linear-gradient(135deg, rgba(30, 58, 138, 0.1), rgba(212, 175, 55, 0.1));
-            border-radius: 15px;
-        }
-
-        .travel-cta h3 {
-            font-size: 1.8rem;
-            margin-bottom: 1rem;
-            background: linear-gradient(135deg, #d4af37 0%, #1e3a8a 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .travel-cta p {
-            font-size: 1.1rem;
-            color: #666;
-            margin-bottom: 1.5rem;
-        }
-
-        .social-button {
-            display: inline-block;
-            padding: 1rem 2rem;
-            background: linear-gradient(135deg, #d4af37 0%, #1e3a8a 100%);
-            color: white;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: bold;
-            transition: transform 0.3s, box-shadow 0.3s;
-            margin: 0.5rem;
-        }
-
-        .social-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(212, 175, 55, 0.4);
-        }
-
         @media (max-width: 768px) {
             .hero h1 {
                 font-size: 2.5rem;
@@ -636,9 +619,6 @@
     </style>
 </head>
 <body>
-    <!-- Fun Floating Bubbles -->
-    <div class="bubble-container" id="bubbleContainer"></div>
-
     <nav class="navbar">
         <div class="logo">SM</div>
         <ul class="nav-links">
@@ -653,13 +633,10 @@
     </nav>
 
     <section id="home" class="hero">
-        <div class="floating-icons">
-            <div class="floating-icon" style="top: 10%; left: 10%; animation-delay: 0s;">💼</div>
-            <div class="floating-icon" style="top: 20%; left: 80%; animation-delay: 2s;">📊</div>
-            <div class="floating-icon" style="top: 60%; left: 15%; animation-delay: 4s;">🏨</div>
-            <div class="floating-icon" style="top: 70%; left: 85%; animation-delay: 1s;">⛳</div>
-            <div class="floating-icon" style="top: 40%; left: 90%; animation-delay: 3s;">💰</div>
-            <div class="floating-icon" style="top: 80%; left: 10%; animation-delay: 5s;">₿</div>
+        <div class="particles-container" id="particlesContainer">
+            <div class="glow-orb" style="width: 300px; height: 300px; top: 10%; left: 10%;"></div>
+            <div class="glow-orb" style="width: 400px; height: 400px; top: 50%; right: 10%; animation-delay: 2s;"></div>
+            <div class="glow-orb" style="width: 250px; height: 250px; bottom: 10%; left: 50%; animation-delay: 1s;"></div>
         </div>
         <div class="hero-content">
             <h1>Shajal Miah</h1>
@@ -779,51 +756,51 @@
         <h2>Follow My Travel Journey 🌍</h2>
         
         <div class="travel-gallery">
-            <div class="travel-card">
+            <div class="travel-card" onclick="openJourney('paris')">
                 <img src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?w=800&h=600&fit=crop" alt="Paris" class="travel-image">
                 <div class="travel-overlay">
                     <div class="travel-location">Paris, France</div>
-                    <div class="travel-description">The city of lights and romance. Explored the Eiffel Tower and indulged in exquisite French cuisine.</div>
+                    <div class="travel-description">Click to see my journey through the city of lights and romance.</div>
                 </div>
             </div>
             
-            <div class="travel-card">
+            <div class="travel-card" onclick="openJourney('swiss')">
                 <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&h=600&fit=crop" alt="Mountains" class="travel-image">
                 <div class="travel-overlay">
                     <div class="travel-location">Swiss Alps, Switzerland</div>
-                    <div class="travel-description">Breathtaking mountain views and world-class hospitality in the heart of Europe.</div>
+                    <div class="travel-description">Click to explore my mountain adventure and Swiss hospitality.</div>
                 </div>
             </div>
             
-            <div class="travel-card">
+            <div class="travel-card" onclick="openJourney('santorini')">
                 <img src="https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?w=800&h=600&fit=crop" alt="Santorini" class="travel-image">
                 <div class="travel-overlay">
                     <div class="travel-location">Santorini, Greece</div>
-                    <div class="travel-description">White-washed buildings and stunning sunsets over the Aegean Sea.</div>
+                    <div class="travel-description">Click to see stunning sunsets and Greek island magic.</div>
                 </div>
             </div>
             
-            <div class="travel-card">
+            <div class="travel-card" onclick="openJourney('petra')">
                 <img src="https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?w=800&h=600&fit=crop" alt="Jordan" class="travel-image">
                 <div class="travel-overlay">
                     <div class="travel-location">Petra, Jordan</div>
-                    <div class="travel-description">Ancient wonders carved in rose-red stone. A bucket list destination come true.</div>
+                    <div class="travel-description">Click to discover ancient wonders carved in stone.</div>
                 </div>
             </div>
             
-            <div class="travel-card">
+            <div class="travel-card" onclick="openJourney('iceland')">
                 <img src="https://images.unsplash.com/photo-1545569341-9eb8b30979d9?w=800&h=600&fit=crop" alt="Iceland" class="travel-image">
                 <div class="travel-overlay">
                     <div class="travel-location">Reykjavik, Iceland</div>
-                    <div class="travel-description">Land of fire and ice. Northern lights, hot springs, and dramatic landscapes.</div>
+                    <div class="travel-description">Click to witness Northern Lights and fire & ice landscapes.</div>
                 </div>
             </div>
             
-            <div class="travel-card">
+            <div class="travel-card" onclick="openJourney('dubai')">
                 <img src="https://images.unsplash.com/photo-1528702748617-c64d49f918af?w=800&h=600&fit=crop" alt="Dubai" class="travel-image">
                 <div class="travel-overlay">
                     <div class="travel-location">Dubai, UAE</div>
-                    <div class="travel-description">Modern marvels and luxury hospitality in the desert oasis.</div>
+                    <div class="travel-description">Click to experience modern luxury and Arabian hospitality.</div>
                 </div>
             </div>
         </div>
@@ -925,39 +902,236 @@
             }
         }
 
-        // Start typing animation
         setTimeout(type, 1000);
 
-        // Fun Bubble Animation
-        function createBubble() {
-            const bubble = document.createElement('div');
-            bubble.className = 'bubble';
+        // Warm Floating Particles Animation
+        function createParticle() {
+            const particle = document.createElement('div');
+            particle.className = 'particle';
             
-            const size = Math.random() * 60 + 20;
-            bubble.style.width = size + 'px';
-            bubble.style.height = size + 'px';
-            bubble.style.left = Math.random() * window.innerWidth + 'px';
+            const size = Math.random() * 8 + 3;
+            particle.style.width = size + 'px';
+            particle.style.height = size + 'px';
+            particle.style.left = Math.random() * 100 + '%';
             
-            const duration = Math.random() * 4 + 4;
-            bubble.style.animationDuration = duration + 's';
+            const floatX = (Math.random() - 0.5) * 200;
+            particle.style.setProperty('--float-x', floatX + 'px');
             
-            bubble.addEventListener('click', function() {
-                bubble.classList.add('popping');
-                setTimeout(() => bubble.remove(), 300);
-            });
+            const duration = Math.random() * 6 + 8;
+            particle.style.animationDuration = duration + 's';
             
-            document.getElementById('bubbleContainer').appendChild(bubble);
+            const delay = Math.random() * 2;
+            particle.style.animationDelay = delay + 's';
+            
+            document.getElementById('particlesContainer').appendChild(particle);
             
             setTimeout(() => {
-                if (bubble.parentNode) {
-                    bubble.remove();
+                if (particle.parentNode) {
+                    particle.remove();
                 }
-            }, duration * 1000);
+            }, (duration + delay) * 1000);
         }
 
-        setInterval(createBubble, 800);
+        // Create initial particles
+        for(let i = 0; i < 30; i++) {
+            setTimeout(() => createParticle(), i * 200);
+        }
+        
+        setInterval(createParticle, 600);
 
-        // Animate skill bars on scroll
+        // Journey Data
+        const journeyData = {
+            paris: {
+                title: "Paris, France",
+                date: "September 2023",
+                story: "My journey to Paris was nothing short of magical. From the moment I arrived, the city captured my heart with its timeless elegance and romantic atmosphere. I spent days wandering through charming cobblestone streets, visiting world-class museums, and experiencing the incredible French hospitality that inspired my own career path. The Eiffel Tower at sunset was a moment I'll never forget - the golden light reflecting off the iron structure while the city buzzed with life below. Every café, every bistro, every hotel showed me the art of hospitality at its finest.",
+                photos: [
+                    { url: "https://images.unsplash.com/photo-1502602898657-3e91760cbb34?w=800", caption: "Iconic Eiffel Tower at sunset" },
+                    { url: "https://images.unsplash.com/photo-1511739001486-6bfe10ce785f?w=800", caption: "Charming Parisian streets" },
+                    { url: "https://images.unsplash.com/photo-1499856871958-5b9627545d1a?w=800", caption: "Notre-Dame Cathedral" },
+                    { url: "https://images.unsplash.com/photo-1431274172761-fca41d930114?w=800", caption: "Seine River cruise" },
+                    { url: "https://images.unsplash.com/photo-1502602898657-3e91760cbb34?w=800", caption: "Evening lights of Paris" },
+                    { url: "https://images.unsplash.com/photo-1509439581779-6298f75bf6e5?w=800", caption: "Local café culture" }
+                ]
+            },
+            swiss: {
+                title: "Swiss Alps, Switzerland",
+                date: "July 2023",
+                story: "The Swiss Alps took my breath away - literally and figuratively! The pristine mountain air, crystal-clear lakes, and picture-perfect villages felt like stepping into a postcard. I experienced world-renowned Swiss hospitality in mountain resorts where every detail was perfected. Hiking through alpine meadows, taking scenic train rides, and watching the sunrise paint the peaks golden taught me that sometimes the best luxury is nature itself, paired with impeccable service.",
+                photos: [
+                    { url: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800", caption: "Majestic mountain peaks" },
+                    { url: "https://images.unsplash.com/photo-1531366936337-7c912a4589a7?w=800", caption: "Alpine village charm" },
+                    { url: "https://images.unsplash.com/photo-1527004013197-933c4bb611b3?w=800", caption: "Crystal clear mountain lakes" },
+                    { url: "https://images.unsplash.com/photo-1531572753322-ad063cecc140?w=800", caption: "Scenic mountain railway" }
+                ]
+            },
+            santorini: {
+                title: "Santorini, Greece",
+                date: "June 2023",
+                story: "Santorini exceeded every expectation. The iconic white-washed buildings with blue domes against the deep blue Aegean Sea created the most stunning backdrop I've ever seen. I stayed in a cave hotel carved into the cliffs, dined on fresh Mediterranean cuisine with views of the caldera, and watched the most spectacular sunsets of my life. The Greek hospitality - warm, genuine, and generous - reminded me why I love this industry.",
+                photos: [
+                    { url: "https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?w=800", caption: "Classic Santorini sunset" },
+                    { url: "https://images.unsplash.com/photo-1533104816931-20fa691ff6ca?w=800", caption: "Blue-domed churches" },
+                    { url: "https://images.unsplash.com/photo-1570077188670-e3a8d69ac5ff?w=800", caption: "Cliffside villages" },
+                    { url: "https://images.unsplash.com/photo-1613395877344-13d4a8e0d49e?w=800", caption: "Aegean Sea views" }
+                ]
+            },
+            petra: {
+                title: "Petra, Jordan",
+                date: "March 2023",
+                story: "Walking through the narrow Siq canyon and seeing the Treasury emerge from the rock face was one of the most awe-inspiring moments of my life. Petra is more than just ancient ruins - it's a testament to human ingenuity and a reminder of how hospitality and trade routes shaped civilizations. The Jordanian people's warmth and pride in sharing their heritage made this trip unforgettable.",
+                photos: [
+                    { url: "https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?w=800", caption: "The magnificent Treasury" },
+                    { url: "https://images.unsplash.com/photo-1578583173713-af1ca0611bb8?w=800", caption: "Ancient carved facades" },
+                    { url: "https://images.unsplash.com/photo-1580674285054-bed31e145f59?w=800", caption: "Desert monastery" },
+                    { url: "https://images.unsplash.com/photo-1519404969746-86c47d5cf0e1?w=800", caption: "Sunset over Petra" }
+                ]
+            },
+            iceland: {
+                title: "Reykjavik, Iceland",
+                date: "January 2023",
+                story: "Iceland in winter was pure magic. I witnessed the Northern Lights dancing across the Arctic sky, soaked in geothermal hot springs under the stars, and explored ice caves that looked like they belonged in another world. The contrast of fire and ice - from volcanic landscapes to massive glaciers - was incredible. Icelandic hospitality has a unique charm: cozy, efficient, and deeply connected to nature.",
+                photos: [
+                    { url: "https://images.unsplash.com/photo-1545569341-9eb8b30979d9?w=800", caption: "Northern Lights spectacle" },
+                    { url: "https://images.unsplash.com/photo-1504829857797-ddff29c27927?w=800", caption: "Blue Lagoon hot springs" },
+                    { url: "https://images.unsplash.com/photo-1519904981063-b0cf448d479e?w=800", caption: "Massive glaciers" },
+                    { url: "https://images.unsplash.com/photo-1483347756197-71ef80e95f73?w=800", caption: "Dramatic waterfalls" }
+                ]
+            },
+            dubai: {
+                title: "Dubai, UAE",
+                date: "November 2022",
+                story: "Dubai is where luxury hospitality reaches new heights - literally! From the Burj Khalifa to 7-star hotels, every experience was designed to impress. But beyond the glitz and glamour, I discovered the rich culture, warm Emirati hospitality, and the fascinating blend of tradition and innovation. The city taught me that great hospitality is about creating unforgettable experiences, whether in a traditional souk or a modern skyscraper.",
+                photos: [
+                    { url: "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=800", caption: "Burj Khalifa at night" },
+                    { url: "https://images.unsplash.com/photo-1518684079-3c830dcef090?w=800", caption: "Luxury desert resort" },
+                    { url: "https://images.unsplash.com/photo-1546412414-e1885259563a?w=800", caption: "Modern Dubai skyline" },
+                    { url: "https://images.unsplash.com/photo-1582672060674-bc2bd808a8b5?w=800", caption: "Traditional markets" }
+                ]
+            }
+        };
+
+        function openJourney(destination) {
+            const data = journeyData[destination];
+            
+            let photosHTML = '';
+            data.photos.forEach(photo => {
+                photosHTML += `
+                    <div style="margin-bottom: 2rem; border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.3);">
+                        <img src="${photo.url}" alt="${photo.caption}" style="width: 100%; height: 400px; object-fit: cover; display: block;">
+                        <div style="background: linear-gradient(135deg, #d4af37 0%, #1e3a8a 100%); padding: 1rem; color: white; font-weight: 500;">
+                            ${photo.caption}
+                        </div>
+                    </div>
+                `;
+            });
+            
+            const journeyHTML = `
+                <!DOCTYPE html>
+                <html lang="en">
+                <head>
+                    <meta charset="UTF-8">
+                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                    <title>${data.title} - Travel Journey</title>
+                    <style>
+                        * {
+                            margin: 0;
+                            padding: 0;
+                            box-sizing: border-box;
+                        }
+                        body {
+                            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                            background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%);
+                            color: white;
+                            padding: 2rem;
+                            line-height: 1.6;
+                        }
+                        .container {
+                            max-width: 1200px;
+                            margin: 0 auto;
+                        }
+                        .header {
+                            text-align: center;
+                            margin-bottom: 3rem;
+                            padding-bottom: 2rem;
+                            border-bottom: 2px solid rgba(212, 175, 55, 0.3);
+                        }
+                        h1 {
+                            font-size: 3.5rem;
+                            color: #d4af37;
+                            margin-bottom: 1rem;
+                            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+                        }
+                        .date {
+                            font-size: 1.3rem;
+                            color: #aaa;
+                        }
+                        .story {
+                            background: rgba(255,255,255,0.1);
+                            padding: 2.5rem;
+                            border-radius: 20px;
+                            margin-bottom: 3rem;
+                            font-size: 1.2rem;
+                            line-height: 1.9;
+                            backdrop-filter: blur(10px);
+                            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+                        }
+                        .photos {
+                            display: grid;
+                            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+                            gap: 2rem;
+                        }
+                        .back-button {
+                            position: fixed;
+                            top: 2rem;
+                            right: 2rem;
+                            padding: 1rem 2rem;
+                            background: rgba(212, 175, 55, 0.9);
+                            color: white;
+                            border: none;
+                            border-radius: 50px;
+                            font-size: 1rem;
+                            font-weight: bold;
+                            cursor: pointer;
+                            transition: transform 0.3s, background 0.3s;
+                            z-index: 1000;
+                        }
+                        .back-button:hover {
+                            transform: scale(1.05);
+                            background: #d4af37;
+                        }
+                        @media (max-width: 768px) {
+                            h1 { font-size: 2rem; }
+                            .photos { grid-template-columns: 1fr; }
+                            body { padding: 1rem; }
+                        }
+                    </style>
+                </head>
+                <body>
+                    <button class="back-button" onclick="window.close()">← Back to Portfolio</button>
+                    <div class="container">
+                        <div class="header">
+                            <h1>${data.title}</h1>
+                            <p class="date">${data.date}</p>
+                        </div>
+                        <div class="story">
+                            <p>${data.story}</p>
+                        </div>
+                        <div class="photos">
+                            ${photosHTML}
+                        </div>
+                    </div>
+                </body>
+                </html>
+            `;
+            
+            // Open in new window/tab
+            const newWindow = window.open('', '_blank');
+            newWindow.document.write(journeyHTML);
+            newWindow.document.close();
+        }
+
+        // Animate sections on scroll
         const observerOptions = {
             threshold: 0.3
         };
@@ -967,14 +1141,12 @@
                 if (entry.isIntersecting) {
                     entry.target.classList.add('active');
                     
-                    // Animate skill bars
                     const progressBars = entry.target.querySelectorAll('.skill-progress');
                     progressBars.forEach(bar => {
                         const progress = bar.getAttribute('data-progress');
                         bar.style.width = progress + '%';
                     });
 
-                    // Animate experience items
                     const expItems = entry.target.querySelectorAll('.experience-item');
                     expItems.forEach((item, index) => {
                         setTimeout(() => {
@@ -985,12 +1157,10 @@
             });
         }, observerOptions);
 
-        // Observe all sections
         document.querySelectorAll('.section-reveal').forEach(section => {
             sectionObserver.observe(section);
         });
 
-        // Smooth scroll for navigation
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
