@@ -808,8 +808,6 @@
         <div class="travel-cta">
             <h3>Join Me on My Adventures!</h3>
             <p>Follow my latest travels, photography, and cultural discoveries</p>
-            <a href="https://instagram.com/yourusername" target="_blank" class="social-button">📷 Follow on Instagram</a>
-            <a href="https://youtube.com/@yourusername" target="_blank" class="social-button">🎥 Watch on YouTube</a>
         </div>
     </section>
 
@@ -1014,6 +1012,10 @@
         function openJourney(destination) {
             const data = journeyData[destination];
             
+            // Store current scroll position
+            sessionStorage.setItem('scrollPosition', window.scrollY);
+            sessionStorage.setItem('fromMainSite', 'true');
+            
             let photosHTML = '';
             data.photos.forEach(photo => {
                 photosHTML += `
@@ -1084,7 +1086,7 @@
                         .back-button {
                             position: fixed;
                             top: 2rem;
-                            right: 2rem;
+                            left: 2rem;
                             padding: 1rem 2rem;
                             background: rgba(212, 175, 55, 0.9);
                             color: white;
@@ -1108,7 +1110,7 @@
                     </style>
                 </head>
                 <body>
-                    <button class="back-button" onclick="window.close()">← Back to Portfolio</button>
+                    <button class="back-button" onclick="window.history.back()">← Back</button>
                     <div class="container">
                         <div class="header">
                             <h1>${data.title}</h1>
@@ -1125,11 +1127,23 @@
                 </html>
             `;
             
-            // Open in new window/tab
-            const newWindow = window.open('', '_blank');
-            newWindow.document.write(journeyHTML);
-            newWindow.document.close();
+            // Write to current window (navigates forward)
+            document.open();
+            document.write(journeyHTML);
+            document.close();
         }
+        
+        // Restore scroll position when returning
+        window.addEventListener('load', function() {
+            if (sessionStorage.getItem('fromMainSite') === 'true') {
+                const scrollPos = sessionStorage.getItem('scrollPosition');
+                if (scrollPos) {
+                    window.scrollTo(0, parseInt(scrollPos));
+                }
+                sessionStorage.removeItem('fromMainSite');
+                sessionStorage.removeItem('scrollPosition');
+            }
+        });
 
         // Animate sections on scroll
         const observerOptions = {
